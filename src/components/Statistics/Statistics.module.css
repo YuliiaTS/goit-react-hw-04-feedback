@@ -1,0 +1,13 @@
+.text {
+    font-weight: 500;
+}
+
+.text:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.text span {
+    font-weight: 700;
+	margin-left: 10px;
+    color: rosybrown;
+}
