@@ -4,15 +4,15 @@ import style from '../FeedbackOptions/FeedbackOptions.module.css'
 export default function FeedbackOptions({ options, onLeaveFeedback }) {
     return (
         <div>
-        {options.map(keyName => {
+        {options.map(name => {
             return (
                 <button
                 className={style.btn}
                 type="button"
-                name={keyName}
-                onClick={() => onLeaveFeedback(keyName)}
+                name={name}
+                onClick={() => onLeaveFeedback(name)}
                 >
-                {keyName}
+                {name}
                 </button>
             );
         })}
