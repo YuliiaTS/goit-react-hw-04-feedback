@@ -5,17 +5,40 @@ import Notification from './Notification/Notification';
 import { useState } from 'react';
 import style from '../components/App.module.css';
 
-const state = {
-  good: 0,
-  neutral: 0,
-  bad: 0,
-};
+// const state = {
+//   good: 0,
+//   neutral: 0,
+//   bad: 0,
+// };
 
 export default function App() {
-  const [{ good, neutral, bad }, setState] = useState(state);
 
-  const handelIncrement = name=> {
-    setState(prev => ({ ...prev, [name]: prev[name] + 1 }));
+  const [good, setGoog] = useState(0);
+  const [neutral, setNeutral] = useState(0);
+  const [bad, setBad] = useState(0);
+
+  const state = {
+    good,
+    neutral,
+    bad,
+  };
+
+  const onBtnClick = option => {
+    // console.log(option);
+    switch (option) {
+      case 'good':
+        setGoog(good + 1);
+        break;
+
+      case 'neutral':
+        setNeutral(neutral + 1);
+        break;
+      case 'bad':
+        setBad(bad + 1);
+        break;
+      default:
+        return;
+    }
   };
 
   const countTotalFeedback = () => {
@@ -36,7 +59,7 @@ export default function App() {
       <Section title="Please leave feedback">
         <FeedbackOptions
           options={Object.keys(state)}
-          onLeaveFeedback={handelIncrement}
+          onLeaveFeedback={onBtnClick}
         />
       </Section>
       <Section title="Statistics">
